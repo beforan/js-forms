@@ -9,10 +9,10 @@ At this stage, because this is really just me packaging up the code I needed in 
 
 # Usage
 
-1. Acquire `js-forms.js` from source, or `npm install js-forms`
+1. `npm install js-forms`
 1. Have a node.js modules (UMD stylee) workflow, such as Browserify
-1. Use only browsers that support the ES2015 features in the code, or else transpile down using Babel or similar in your workflow.
-1. Use the exported methods!
+1. `var jsForms = require("js-forms");`
+1. Use the exported methods
 1. ????
 1. PROFIT!
 
@@ -22,12 +22,9 @@ At this stage, because this is really just me packaging up the code I needed in 
 The caveats are pretty clearly covered above, but in more detail:
 
 - The project this was written for uses Browserify, so `js-forms` is written like a node module **only**. It expects a node-like environment.
-- The project this was written for uses Babel.js, so `js-forms` is liberally written in ES2015 or newer. Notable "modern" JS features I can think it uses are:
-    - `...` ellipsis for arguments
-    - arrow function declarations
-    - `let` and `const`
-    - `for ... of`
-    - `for ... in`
+- The source is written in modern feature unrestricted ES.
+    - The gulp build workflow transpiles down to support IE10+ (i.e. babel's "last 2 versions")
+    - Feel free to use the source if you don't want the ES5ish `dist` version
 - I'm a .NET developer, not front-end, so I can't be sure it's super best practice javascript.
 
 
