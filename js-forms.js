@@ -31,7 +31,7 @@ const createFormWithData = (action, formData) => {
     }
 
     return form;
-}
+};
 
 /**
  * Adds an in memory HTML Form to the DOM and immediately submits it
@@ -41,7 +41,7 @@ const submitForm = form => {
     //add it to the DOM and submit
     document.querySelector("body").appendChild(form);
     form.submit();
-}
+};
 
 /*
  * Public API Methods
@@ -94,7 +94,7 @@ const postFormDataAsJson = (action, jsonFieldName, formData, extraValues) => {
 const postObjectAsFormData = (action, formData) => {
     const form = createFormWithData(action, formData);
     submitForm(form);
-}
+};
 
 module.exports = {
     getFormDataAsObject: getFormDataAsObject,

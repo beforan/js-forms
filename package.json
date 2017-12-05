@@ -1,6 +1,6 @@
 {
   "name": "js-forms",
-  "version": "1.0.1-beta1",
+  "version": "1.0.1-beta2",
   "description": "Some helpers for working with forms in Javascript",
   "main": "js-forms.js",
   "scripts": {
