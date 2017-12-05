@@ -16,7 +16,7 @@
     "url": "https://github.com/beforan/js-forms/issues"
   },
   "homepage": "https://github.com/beforan/js-forms#readme",
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
