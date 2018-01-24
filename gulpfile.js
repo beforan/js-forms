@@ -13,7 +13,7 @@ gulp.task("clean", () => {
 gulp.task("js", () =>
 browserify({
     entries: './src/js-forms.js',
-    standalone: 'js-forms',
+    standalone: 'jsForms'
   })
   .transform('babelify', { presets: [['env', { targets: { browsers: ["last 2 versions"] } }]] })
   .bundle()

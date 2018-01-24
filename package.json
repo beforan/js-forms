@@ -1,6 +1,6 @@
 {
   "name": "js-forms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Some helpers for working with forms in Javascript",
   "main": "dist/js-forms.js",
   "scripts": {
@@ -24,7 +24,9 @@
     "del": "3.0.0",
     "gulp": "^3.9.1",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "object.entries": "^1.0.4"
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "formdata-polyfill": "^3.0.9"
   }
 }

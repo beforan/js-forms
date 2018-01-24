@@ -26,7 +26,7 @@ The caveats are pretty clearly covered above, but in more detail:
 
 - The source is written in modern feature unrestricted ES.
     - The gulp build workflow transpiles down to support IE10+ (i.e. babel's "last 2 versions")
-    - The `dist` version includes `object.entries` to shim that feature if browser support isn't there (looking at you, Edge)
+    - depends upon `formdata-polyfill` becuase IE and even Edge at the time of writing don't have a bunch of `FormData` functionality supported, and it makes this way nicer.
     - Feel free to use the source if you don't want the ES5ish `dist` version
 - I'm a .NET developer, not front-end, so I can't be sure it's super best practice javascript.
 
