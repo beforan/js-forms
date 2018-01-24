@@ -2,6 +2,10 @@
  * js-forms
  */
 
+const entries = require('object.entries');
+
+if(!Object.entries) entries.shim(); // polyfill for object.entries
+
 /** ASP.NET Core Verification Token Input Name */
 const verificationTokenInputName = "__RequestVerificationToken";
 
