@@ -20,8 +20,5 @@ browserify({
   .pipe(source('js-forms.js'))
   .pipe(buffer())
   .pipe(gulp.dest('dist')));
-    // gulp.src("src/js-forms.js")
-    // .pipe(babel({ presets: [["env", { targets: { browsers: ["last 2 versions"] } }]] }))
-    // .pipe(gulp.dest("dist")));
 
 gulp.task("default", ["clean", "js"]);
