@@ -2,9 +2,7 @@
  * js-forms
  */
 
-const entries = require('object.entries');
-
-if(!Object.entries) entries.shim(); // polyfill for object.entries
+require('formdata-polyfill');
 
 /** ASP.NET Core Verification Token Input Name */
 const verificationTokenInputName = "__RequestVerificationToken";
@@ -60,7 +58,16 @@ const submitForm = form => {
 const getFormDataAsObject = (formSelector, ...separates) => {
     const form = document.querySelector(formSelector);
     const result = { formData: {} };
-    for (let [key, value] of new FormData(form).entries()) {
+    const formData = new FormData(form);
+
+    // for(const key in formData) {
+    //     if(!formData.hasOwnProperty(key)) continue;
+    //     if (separates.includes(key)) //separate out the requested keys
+    //         result[key] = formData.get(key);
+    //     else result.formData[key] = formData.get(key); //else chuck them into the formData object
+    // }
+
+    for (let [key, value] of new FormData(form)) {
         if (separates.includes(key)) //separate out the requested keys
             result[key] = value;
         else result.formData[key] = value; //else chuck them into the formData object
