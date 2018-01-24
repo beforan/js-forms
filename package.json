@@ -1,6 +1,6 @@
 {
   "name": "js-forms",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Some helpers for working with forms in Javascript",
   "main": "dist/js-forms.js",
   "scripts": {
@@ -18,9 +18,13 @@
   "homepage": "https://github.com/beforan/js-forms#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
+    "babel-preset-env": "1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
     "del": "3.0.0",
-    "babel-preset-env": "1.6.1"
+    "gulp": "^3.9.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "object.entries": "^1.0.4"
   }
 }
