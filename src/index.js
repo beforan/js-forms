@@ -1,5 +1,5 @@
 /**
- * @namespace JsForms
+ * @namespace jsForms
  */
 
 import "formdata-polyfill"; // We use FormData and Edge doesn't yet.

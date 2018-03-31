@@ -12,7 +12,7 @@ At this stage, because this is really just me packaging up the code I needed in 
 1. `npm install js-forms`
 1. The module is UMD wrapped, so require it in your favourite way
   - `const jsForms = require("js-forms");`
-  - `import jsForms from 'js-forms';`
+  - `import * as jsForms from 'js-forms';`
   - `<script src="../node_modules/js-forms/dist/js-forms.js"></script>`
   - ...
 1. Use the exported methods

@@ -1,7 +1,7 @@
 /**
  * ASP.NET Core Verification Token Input Name
  * 
- * @memberof JsForms
+ * @memberof jsForms
  * @name verificationTokenInputName
  * @type {string}
  */
