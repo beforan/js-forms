@@ -4,7 +4,7 @@
 
 /**
  * Creates an HTML Form in memory, with named text inputs for the provided formData
- * 
+ *
  * @memberof JsForms
  * @private
  * @param {string} action The url to use as a Form Action
@@ -12,33 +12,33 @@
  * @returns {HTMLFormElement} The created form
  */
 export const createFormWithData = (action, formData) => {
-    //create a new hidden form to submit
-    const form = document.createElement("form");
-    form.action = action;
-    form.method = "post";
-    form.style.display = "none";
+  //create a new hidden form to submit
+  const form = document.createElement("form");
+  form.action = action;
+  form.method = "post";
+  form.style.display = "none";
 
-    //add the extra values in naive inputs
-    for (let key in formData) {
-        if (!formData.hasOwnProperty(key)) continue;
-        const e = document.createElement("input");
-        e.name = key;
-        e.setAttribute("value", formData[key]);
-        form.appendChild(e);
-    }
+  //add the extra values in naive inputs
+  for (let key in formData) {
+    if (!formData.hasOwnProperty(key)) continue;
+    const e = document.createElement("input");
+    e.name = key;
+    e.setAttribute("value", formData[key]);
+    form.appendChild(e);
+  }
 
-    return form;
+  return form;
 };
 
 /**
  * Adds an in memory HTML Form to the DOM and immediately submits it
- * 
+ *
  * @memberof JsForms
  * @private
- * @param {HTMLFormElement} form 
+ * @param {HTMLFormElement} form
  */
 const submitForm = form => {
-    //add it to the DOM and submit
-    document.querySelector("body").appendChild(form);
-    form.submit();
+  //add it to the DOM and submit
+  document.querySelector("body").appendChild(form);
+  form.submit();
 };
