@@ -4,6 +4,10 @@
   "description": "Some helpers for working with forms in Javascript",
   "main": "dist/js-forms.js",
   "scripts": {
+    "clean:docs": "rimraf docs && mkdir docs",
+    "clean:lib": "rimraf lib && mkdir lib",
+    "clean:dist": "rimraf dist && mkdir dist",
+    "clean": "npm run clean:lib && npm run clean:dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,8 +25,8 @@
     "babel-preset-env": "1.6.1",
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
-    "del": "3.0.0",
     "gulp": "^3.9.1",
+    "rimraf": "^2.6.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
