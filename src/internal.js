@@ -19,7 +19,7 @@ export const createFormWithData = (action, formData) => {
   form.style.display = "none";
 
   //add the extra values in naive inputs
-  for (let key in formData) {
+  for (const key in formData) {
     if (!formData.hasOwnProperty(key)) continue;
     const e = document.createElement("input");
     e.name = key;
@@ -37,7 +37,7 @@ export const createFormWithData = (action, formData) => {
  * @private
  * @param {HTMLFormElement} form
  */
-const submitForm = form => {
+export const submitForm = form => {
   //add it to the DOM and submit
   document.querySelector("body").appendChild(form);
   form.submit();
