@@ -4,14 +4,17 @@
   "description": "Some helpers for working with forms in Javascript",
   "main": "lib/index.js",
   "scripts": {
+    "precommit": "pretty-quick --staged",
     "clean:docs": "rimraf docs && mkdir docs",
     "clean:lib": "rimraf lib && mkdir lib",
     "clean:dist": "rimraf dist && mkdir dist",
     "clean": "npm run clean:lib && npm run clean:dist",
-    "prelib": "npm run clean:lib",
+    "lint": "eslint ./src",
+    "prelib": "npm run clean:lib && npm run lint",
     "lib": "babel src -d lib",
-    "predist": "npm run clean:dist",
-    "dist": "cross-env BABEL_ENV=dist browserify -t babelify -d -s jsForms ./src/index.js > ./dist/js-forms.js",
+    "predist": "npm run clean:dist && npm run lint",
+    "dist":
+      "cross-env BABEL_ENV=dist browserify -t babelify -d -s jsForms ./src/index.js > ./dist/js-forms.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
@@ -22,20 +25,14 @@
             "@babel/preset-env",
             {
               "targets": {
-                "browsers": [
-                  "last 2 versions"
-                ]
+                "browsers": ["last 2 versions"]
               }
             }
           ]
         ]
       }
     },
-    "presets": [
-      [
-        "@babel/preset-env"
-      ]
-    ],
+    "presets": [["@babel/preset-env"]],
     "comments": false,
     "sourceMaps": "inline"
   },
@@ -53,9 +50,15 @@
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.42",
     "@babel/preset-env": "^7.0.0-beta.42",
+    "babel-eslint": "^8.2.2",
     "babelify": "github:ylemkimon/babelify",
     "browserify": "^15.2.0",
     "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-mocha": "^5.0.0",
+    "husky": "^0.14.3",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
     "rimraf": "^2.6.2"
   },
   "dependencies": {
