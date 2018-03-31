@@ -10,11 +10,15 @@
     "clean:dist": "rimraf dist && mkdir dist",
     "clean": "npm run clean:lib && npm run clean:dist",
     "lint": "eslint ./src",
-    "prelib": "npm run clean:lib && npm run lint",
     "lib": "babel src -d lib",
-    "predist": "npm run clean:dist && npm run lint",
     "dist":
       "cross-env BABEL_ENV=dist browserify -t babelify -d -s jsForms ./src/index.js > ./dist/js-forms.js",
+    "prebuild:lib": "npm run clean:lib && npm run lint",
+    "build:lib": "npm run lib",
+    "prebuild:dist": "npm run clean:dist && npm run lint",
+    "build:dist": "npm run dist",
+    "prebuild": "npm run clean && npm run lint",
+    "build": "npm run lib && npm run dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
