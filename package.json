@@ -2,9 +2,42 @@
   "name": "js-forms",
   "version": "1.0.3",
   "description": "Some helpers for working with forms in Javascript",
-  "main": "dist/js-forms.js",
+  "main": "lib/index.js",
   "scripts": {
+    "clean:docs": "rimraf docs && mkdir docs",
+    "clean:lib": "rimraf lib && mkdir lib",
+    "clean:dist": "rimraf dist && mkdir dist",
+    "clean": "npm run clean:lib && npm run clean:dist",
+    "prelib": "npm run clean:lib",
+    "lib": "babel src -d lib",
+    "predist": "npm run clean:dist",
+    "dist": "cross-env BABEL_ENV=dist browserify -t babelify -d -s jsForms ./src/index.js > ./dist/js-forms.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "env": {
+      "dist": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "browsers": [
+                  "last 2 versions"
+                ]
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ],
+    "comments": false,
+    "sourceMaps": "inline"
   },
   "repository": {
     "type": "git",
@@ -17,14 +50,13 @@
   },
   "homepage": "https://github.com/beforan/js-forms#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "1.6.1",
-    "babelify": "^8.0.0",
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "babelify": "github:ylemkimon/babelify",
     "browserify": "^15.2.0",
-    "del": "3.0.0",
-    "gulp": "^3.9.1",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "cross-env": "^5.1.4",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
     "formdata-polyfill": "^3.0.9"

@@ -6,7 +6,7 @@
  * Get data from a given form in the DOM, wrap the fields in a formData object,
  * unless the keys are in separates, in which case keep them separate from the formData object
  *
- * @memberof JsForms
+ * @memberof jsForms
  * @param {string} formSelector A CSS selector to find the form in the DOM
  * @param {...string} separates a ...array of keys to keep named form inputs separate from the formData object
  * @return {object} An object containing keys and values for `separates`
@@ -30,7 +30,7 @@ export const getFormDataAsObject = (formSelector, ...separates) => {
  * Post a Form with the form inputs wrapped into a single json object, submitted as a single named string
  * Any extraValues are submitted in addition to the json string
  * 
- * @memberof JsForms
+ * @memberof jsForms
  * @param {string} action The url to use as a Form Action
  * @param {string} jsonFieldName The name to give the input field containing the json string
  * @param {object} formData The object to turn into the json string value
@@ -52,7 +52,7 @@ export const postFormDataAsJson = (action, jsonFieldName, formData, extraValues)
 /**
  * Create and submit an in memory form with the provided formData object as input fields
  * 
- * @memberof JsForms
+ * @memberof jsForms
  * @param {string} action
  * @param {object} formData
  */

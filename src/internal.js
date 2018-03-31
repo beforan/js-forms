@@ -5,7 +5,7 @@
 /**
  * Creates an HTML Form in memory, with named text inputs for the provided formData
  *
- * @memberof JsForms
+ * @memberof jsForms
  * @private
  * @param {string} action The url to use as a Form Action
  * @param {object} formData Keys/values to submit as named Form input fields
@@ -33,7 +33,7 @@ export const createFormWithData = (action, formData) => {
 /**
  * Adds an in memory HTML Form to the DOM and immediately submits it
  *
- * @memberof JsForms
+ * @memberof jsForms
  * @private
  * @param {HTMLFormElement} form
  */
