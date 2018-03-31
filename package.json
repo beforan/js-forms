@@ -2,13 +2,23 @@
   "name": "js-forms",
   "version": "1.0.3",
   "description": "Some helpers for working with forms in Javascript",
-  "main": "dist/js-forms.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean:docs": "rimraf docs && mkdir docs",
     "clean:lib": "rimraf lib && mkdir lib",
     "clean:dist": "rimraf dist && mkdir dist",
     "clean": "npm run clean:lib && npm run clean:dist",
+    "lib": "babel src -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ],
+    "comments": false,
+    "sourceMaps": "inline"
   },
   "repository": {
     "type": "git",
@@ -21,8 +31,9 @@
   },
   "homepage": "https://github.com/beforan/js-forms#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "1.6.1",
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
     "gulp": "^3.9.1",
