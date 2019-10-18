@@ -1,56 +1,57 @@
 # js-forms
 
-This module contains some helper methods I wrote when doing some slightly unorthodox work with forms and javascript in ASP.NET Core.
+Some helpful functions for:
 
-However, some of it can be quite helpful in a reusable manner, so here it is, on github and npm, for the world to see, use and contribute to.
+- Submitting js object properties as if they were fields in an HTML form.
+- Getting (some or all of) the contents of an HTML form as a JSON object
+  - which could then be sent in an AJAX POST instead of a form submission
+  - or used for anything else!
+- Submitting an HTML form with some (or all) form fields wrapped into a JSON object in a single text field
 
-At this stage, because this is really just me packaging up the code I needed in my original project, there are some major caveats, but hopefully over time, possibly with contributions, this will improve.
+## Why is this useful?
 
+Mainly for unorthodox client side interop with otherwise server pages, particularly when using React/Vue/Angular/KnockoutJS/whatever inside single server-loaded pages, as opposed to in an SPA context.
+
+Imagine you have a server loaded page, with an HTML form, but you want some advanced client-side UI as part of the form.
+
+You could write the scary frontend part in React, and then have form submissions send the React App's state object as well as the other form fields with ease.
 
 # Usage
 
 1. `npm install js-forms`
-1. The module is UMD wrapped, so require it in your favourite way
-  - `const jsForms = require("js-forms");`
-  - `import * as jsForms from 'js-forms';`
-  - `<script src="../node_modules/js-forms/dist/js-forms.js"></script>`
-  - ...
+1. The package provides ESM, CommonJS and UMD versions; just use it in your normal way
+   - `const jsForms = require("js-forms");`
+   - `import * as jsForms from "js-forms";`
+   - `<script src="../node_modules/js-forms/umd/js-forms.js"></script>`
+   - ...
 1. Use the exported methods
 1. ????
 1. PROFIT!
 
-
 # Caveats
 
-The caveats are pretty clearly covered above, but in more detail:
-
-- The source is written in modern feature unrestricted ES.
-    - The gulp build workflow transpiles down to support IE10+ (i.e. babel's "last 2 versions")
-    - depends upon `formdata-polyfill` becuase IE and even Edge at the time of writing don't have a bunch of `FormData` functionality supported, and it makes this way nicer.
-    - Feel free to use the source if you don't want the ES5ish `dist` version
-- I'm a .NET developer, not front-end, so I can't be sure it's super best practice javascript.
-
+- The code uses [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) which isn't fully supported by older browsers
+  - IE and Edge (Classic) are known to have issues.
+  - [`formdata-polyfill`](https://www.npmjs.com/package/formdata-polyfill) can be used to resolve this. Just import it before using this module.
 
 # FAQ
 
-## What's `verificationTokenInputName`?
+## What's `aspNetCoreCsrf`?
 
-This code was written to be used in an ASP.NET Core project. That framework has helpers which, when creating forms in a view, add an AntiForgery token field. That field has a name, so I stuck it in a constant in case it needs referring to.
+This code was originally written to be used in an ASP.NET Core project.
 
+That framework has helpers which, when creating forms in a view, add a CSRF AntiForgery token field. That field has a name, so I stuck it in a constant in case it needs referring to.
 
 # Reference?
 
-Right now the source is pretty simples, so look at `module.exports` to see what the "public" methods are, and then look at those methods implementations to get the gist.
+Right now the source is pretty simples, so look at the public exports to get the gist.
 
 When I get some time I'll write up a reference, or else YOU can and make a PR! :smile:
-
 
 # Examples
 
 When I get some time I'll tidy up some usage of this from existing projects to give examples of usage.
 
-
 # Contribute
 
 Yes please. Anybody dealing with the caveats above, wanting to add features, wanting to resolve issues that may be raised, etc... PLEASE MAKE PR's.
-

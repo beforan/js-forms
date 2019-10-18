@@ -1,4 +1,5 @@
-dist
-lib
+cjs
+esm
+umd
 
 node_modules

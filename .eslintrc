@@ -1,7 +1,4 @@
 {
-  "plugins": [
-    "mocha"
-  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -9,8 +6,7 @@
   },
   "env": {
     "browser": true,
-    "node": true,
-    "mocha": true
+    "node": true
   },
   "rules": {
     "camelcase": 2,

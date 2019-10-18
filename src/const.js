@@ -1,8 +1,8 @@
 /**
- * ASP.NET Core Verification Token Input Name
- * 
+ * ASP.NET Core CSRF Token Input Name
+ *
  * @memberof jsForms
- * @name verificationTokenInputName
+ * @name aspNetCoreCsrf
  * @type {string}
  */
-export const verificationTokenInputName = "__RequestVerificationToken";
+export const aspNetCoreCsrf = "__RequestVerificationToken";
