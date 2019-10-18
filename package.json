@@ -1,6 +1,6 @@
 {
   "name": "js-forms",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0",
   "description": "Some helpers for working with forms in Javascript",
   "main": "cjs/js-forms.js",
   "browser": "umd/js-forms.js",
