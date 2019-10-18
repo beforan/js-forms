@@ -1,22 +1,19 @@
 {
   "name": "js-forms",
-  "version": "1.0.4",
+  "version": "2.0.0-beta.1",
   "description": "Some helpers for working with forms in Javascript",
-  "main": "lib/index.js",
+  "main": "cjs/js-forms.js",
+  "browser": "umd/js-forms.js",
+  "module": "esm/js-forms.js",
+  "files": [
+    "umd",
+    "cjs",
+    "esm"
+  ],
   "scripts": {
-    "clean:docs": "rimraf docs && mkdir docs",
-    "clean:lib": "rimraf lib && mkdir lib",
-    "clean:dist": "rimraf dist && mkdir dist",
-    "clean": "npm run clean:lib && npm run clean:dist",
-    "lint": "eslint ./src",
-    "lib": "babel src -d lib",
-    "dist": "cross-env BABEL_ENV=dist browserify -t babelify -d -s jsForms ./src/index.js > ./dist/js-forms.js",
-    "prebuild:lib": "npm run clean:lib && npm run lint",
-    "build:lib": "npm run lib",
-    "prebuild:dist": "npm run clean:dist && npm run lint",
-    "build:dist": "npm run dist",
-    "prebuild": "npm run clean && npm run lint",
-    "build": "npm run lib && npm run dist",
+    "rollup": "rollup -c",
+    "lint": "eslint src/**/*.js",
+    "build": "npm run lint && npm run rollup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
@@ -25,29 +22,9 @@
     }
   },
   "babel": {
-    "env": {
-      "dist": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              "targets": {
-                "browsers": [
-                  "last 2 versions"
-                ]
-              }
-            }
-          ]
-        ]
-      }
-    },
     "presets": [
-      [
-        "@babel/preset-env"
-      ]
-    ],
-    "comments": false,
-    "sourceMaps": "inline"
+      "@babel/preset-env"
+    ]
   },
   "repository": {
     "type": "git",
@@ -60,21 +37,16 @@
   },
   "homepage": "https://github.com/beforan/js-forms#readme",
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "babel-eslint": "^10.0.1",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.9.0",
-    "eslint-plugin-mocha": "^5.2.0",
-    "husky": "^1.2.0",
-    "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0",
-    "rimraf": "^2.6.2"
-  },
-  "dependencies": {
-    "formdata-polyfill": "^3.0.13"
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "husky": "^3.0.9",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "rollup": "^1.25.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.1.2"
   }
 }
